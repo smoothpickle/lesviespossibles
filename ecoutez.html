@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr" class="no-js site-loaded page">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Enregistrez - Les vies possibles</title>
+    <title>Écoutez - Les vies possibles</title>
 
     <script type="module">
-    document.documentElement.classList.remove('no-js');
-    document.documentElement.classList.add('js');
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
     </script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -35,57 +36,58 @@
 </head>
 
 <body>
-  <!-- Content -->
+    <!-- Content -->
     <header>
-    <h1>
-        <span class="sr-hide">
-            Les vies possibles
-        </span>
-    </h1>
-    <a href="#" class="btn btn-close">
-        <span class="sr-hide">Fermer</span>
-    </a>
+        <h1>
+            <span class="sr-hide">
+                Les vies possibles
+            </span>
+        </h1>
+        <a href="./index.html?siteload=true" class="btn btn-close">
+            <span class="sr-hide">Fermer</span>
+        </a>
     </header>
 
     <main>
+        
+        <section id="section-listen">
+            <figure>
+                <figcaption>Piste audio:</figcaption>
+                <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
+                    Your browser does not support the <code>audio</code> element.
+                </audio>
+            </figure>
+            <button class="btn btn-play">
+                <span class="sr-hide">Jouez la piste</span>
+            </button>
+            <button class="btn btn-pause">
+                <span class="sr-hide">Arrêter la piste</span>
+            </button>
+            <button class="btn btn-random">
+                <span class="sr-hide">Jouez une piste audio au hasard</span>
+            </button>
+        </section>
 
-    <section id="section-record">
-        <button class="btn btn-record">
-            <span>Commencez<br> l'enregistrement</span>
-        </button>
-        <button class="btn btn-stop-record">
-            <span>Arrêtez l'enregistrement</span>
-        </button>
-        <div class="msg-confirmation">
-            <p>Enregistrement en attente</p>
-            <button class="btn btn-erase-audio btn-small">Effacer</button>
-            <button class="btn btn-send-audio btn-small">Envoyez</button>
-        </div>
-    </section>
-    
-    <section id="section-thanks">
-        <p>Merci de votre participation</p>
-        <p><a href="#" data-click="open-section-listen">Pour écoutez les autres témoignagnes.</a></p>
-    </section>
+    </main>
+
+
+    <div class="modal-bg"></div>
 
     <!-- <div class="loader"></div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./assets/js/script.js" type="module"></script>
+    <!-- <script src="./assets/js/script.js" type="module"></script> -->
     <script>
-   
-            
         $(window).on('load', function () {
 
+            setTimeout(function () {
+                $('#section-listen').fadeIn(300);
+                $('.btn-close').fadeIn(300);
+            }, 500);
 
-            // $('html').addClass('site-loaded');
-            // $('.loader').fadeOut(300);
-            
-            $('#section-record').fadeIn(300);
-           
-            
         });
     </script>
-    
+
 </body>
+
 </html>

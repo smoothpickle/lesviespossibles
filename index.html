@@ -32,6 +32,13 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/my.webmanifest">
     <meta name="theme-color" content="#FF00FF">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        if (window.location.search.indexOf('siteload=true') > -1) {
+            $('html').addClass('site-loaded')
+        }
+    </script>
 </head>
 
 <body>
@@ -51,10 +58,10 @@
         
         <section class="active" id="section-intro">
             <div class="half">
-                <button class="btn btn-intro-listen"><span>Écoutez</span></button>
+                <a href="./ecoutez.html" class="btn btn-intro-listen"><span>Écoutez</span></a>
             </div>
             <div class="half">
-            <button class="btn btn-intro-record"><span>Enregistrer</span></button>
+                <button href="./enregistrez.html" class="btn btn-intro-record"><span>Enregistrer</span></button>
             </div>
             <div class="full">
                 <button class="btn btn-about">
@@ -67,24 +74,6 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lacus libero. Aliquam sed volutpat metus. Praesent eu justo finibus, pulvinar neque sed, porta ex. Mauris venenatis, purus et sodales dignissim, metus ipsum rhoncus metus, at accumsan turpis purus eget lorem. Aenean pellentesque tortor sit amet tellus vestibulum dictum. Proin a odio sed odio hendrerit convallis. Proin cursus pharetra diam, eu pellentesque nibh consequat a. Donec luctus lacus ac augue posuere lacinia. In diam arcu, pellentesque eu gravida et, vestibulum vel nibh. Curabitur suscipit augue non quam dapibus sagittis. Suspendisse nec iaculis mauris. Curabitur tempor rhoncus porttitor. Curabitur eget tellus vel sem imperdiet tincidunt vel quis nisi. Duis sit amet rhoncus nunc, vel posuere magna. In elit metus, congue sed erat nec, tincidunt dignissim libero.</p>
         </section>
         
-        <section id="section-listen">
-            <figure>
-                <figcaption>Piste audio:</figcaption>
-                <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
-                    Your browser does not support the <code>audio</code> element.
-                </audio>
-            </figure>
-            <button class="btn btn-play">
-                <span class="sr-hide">Jouez la piste</span>
-            </button>
-            <button class="btn btn-pause">
-                <span class="sr-hide">Arrêter la piste</span>
-            </button>
-            <button class="btn btn-random">
-                <span class="sr-hide">Jouez une piste audio au hasard</span>
-            </button>
-        </section>
-        
     </main>
   
     <div class="modal" id="modal-legal">
@@ -94,7 +83,7 @@
         <div class="modal-content">
             <p>J’autorise Stanley Février à utiliser l’enregistrement sonore dans le cadre du projet Les vies possibles.</p>
             <button class="btn btn-refuse btn-small" onclick="closeModal();">Refuser</button>
-            <a href="enregistrer.html" class="btn btn-accept btn-small">Accepter</a>
+            <a href="enregistrez.html" class="btn btn-accept btn-small">Accepter</a>
         </div>
     </div>
     
@@ -102,10 +91,9 @@
 
     <div class="loader"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./assets/js/script.js" type="module"></script>
+    <!-- <script src="./assets/js/script.js" type="module"></script> -->
     <script>
-        
+
         function closeModal() {
 
             $('.modal').fadeOut(300);

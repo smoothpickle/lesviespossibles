@@ -142,10 +142,15 @@ p {
   background: transparent url("data:image/svg+xml,%3Csvg width='279' height='196' viewBox='0 0 279 196' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1.47021' y='1.25' width='275.974' height='193.5' stroke='white' stroke-width='2.5'/%3E%3Cpath d='M2.42197 2.4244L277.076 194.084' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E%0A") no-repeat 0;
   background-size: cover;
   border: 0;
+  display: inline-block;
   height: 195px;
   width: 277px;
   -webkit-transition-delay: 700ms;
   transition-delay: 700ms;
+}
+
+.btn.btn-intro-listen span {
+  font-size: 1.3em;
 }
 
 .btn.btn-intro-record {
@@ -254,6 +259,38 @@ p {
   top: 0%;
 }
 
+.btn.btn-stop-record {
+  border: 2px solid white;
+  display: inline-block;
+  font-size: 1.4em;
+  overflow: hidden;
+  padding: 118px 60px;
+  position: relative;
+  -webkit-transition: color 255ms ease;
+  transition: color 255ms ease;
+}
+
+.btn.btn-stop-record::before {
+  background-color: white;
+  content: "";
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-transition: top 255ms ease;
+  transition: top 255ms ease;
+  z-index: -1;
+}
+
+.btn.btn-stop-record:hover {
+  color: #111;
+}
+
+.btn.btn-stop-record:hover::before {
+  top: 0%;
+}
+
 section {
   display: none;
   margin: 0 auto;
@@ -291,12 +328,32 @@ section#section-record {
   text-align: center;
 }
 
-section#section-record .btn-stop-record {
+section#section-record .step-2, section#section-record .step-3, section#section-record .step-4 {
   display: none;
 }
 
-section#section-record .msg-confirmation {
-  display: none;
+section#section-record .step-4 a {
+  color: white;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+
+section#section-record .step-4 a::before {
+  background-color: white;
+  bottom: -2px;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 0%;
+  -webkit-transition: width 300ms ease;
+  transition: width 300ms ease;
+}
+
+section#section-record .step-4 a:hover::before {
+  width: 100%;
 }
 
 .modal {
@@ -353,6 +410,10 @@ section#section-record .msg-confirmation {
   position: fixed;
   right: 0;
   top: 0;
+}
+
+.site-loaded:not(.page) .loader {
+  display: none;
 }
 
 .sr-hide:not(:focus):not(:active) {
