@@ -7,34 +7,46 @@
     <title>Les vies possibles</title>
 
     <script type="module">
-    document.documentElement.classList.remove('no-js');
-    document.documentElement.classList.add('js');
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
     </script>
     
     <link rel="stylesheet" href="https://use.typekit.net/sqz3hxj.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css?v=2">
 
-    <meta name="description" content="Page description">
-    <meta property="og:title" content="Les vies possibles">
-    <meta property="og:description" content="Page description">
-    <meta property="og:image" content="https://www.mywebsite.com/image.jpg">
-    <meta property="og:image:alt" content="Image description">
-    <meta property="og:locale" content="fr_CA">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Les vies possibles">
+    <meta name="description" content="Veuillez laisser votre message.">
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:url" content="https://www.mywebsite.com/page">
-    <link rel="canonical" href="https://www.mywebsite.com/page">
+    <meta property="og:url" content="https://lesviespossibles.org/">
+    <meta property="og:title" content="Les vies possibles">
+    <meta property="og:description" content="Veuillez laisser votre message.">
+    <meta property="og:image" content="https://lesviespossibles.org/fb-img.png">
 
-    <link rel="icon" href="/favicon.ico">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lesviespossibles.org/">
+    <meta property="twitter:title" content="Les vies possibles">
+    <meta property="twitter:description" content="Veuillez laisser votre message.">
+    <meta property="twitter:image" content="https://lesviespossibles.org/twitter-img.png">
+
+    <!-- <link rel="icon" href="/favicon.ico">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="theme-color" content="#FF00FF">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+    <!-- <meta name="theme-color" content="#FF00FF"> -->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-91D99E8XNS"></script>
     <script>
-        // if (window.location.search.indexOf('siteloaded=true') > -1) {
-        //     $('html').addClass('site-loaded')
-        // }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-91D99E8XNS');
     </script>
 </head>
 
@@ -61,17 +73,19 @@
                 <a href="./ecoutez" class="btn btn-intro-listen"><span>Écoutez</span></a>
             </div>
             <div class="half">
-                <button class="btn btn-intro-record"><span>Enregistrer</span></button>
+                <button class="btn btn-intro-record" data-action="openModal"><span>Enregistrer</span></button>
             </div>
             <div class="full">
-                <button class="btn btn-about">
+                <!-- <button class="btn btn-about">
                     <span class="sr-hide">À propos</span>
-                </button>
+                </button> -->
+                <a class="link-theme-a btn-about" href="#">Projet</a>
             </div>
         </section>
         
         <section id="section-about">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lacus libero. Aliquam sed volutpat metus. Praesent eu justo finibus, pulvinar neque sed, porta ex. Mauris venenatis, purus et sodales dignissim, metus ipsum rhoncus metus, at accumsan turpis purus eget lorem. Aenean pellentesque tortor sit amet tellus vestibulum dictum. Proin a odio sed odio hendrerit convallis. Proin cursus pharetra diam, eu pellentesque nibh consequat a. Donec luctus lacus ac augue posuere lacinia. In diam arcu, pellentesque eu gravida et, vestibulum vel nibh. Curabitur suscipit augue non quam dapibus sagittis. Suspendisse nec iaculis mauris. Curabitur tempor rhoncus porttitor. Curabitur eget tellus vel sem imperdiet tincidunt vel quis nisi. Duis sit amet rhoncus nunc, vel posuere magna. In elit metus, congue sed erat nec, tincidunt dignissim libero.</p>
+            <p>Le projet <em>Les vies possibles</em> de Stanley Février aborde la question de la détresse psychologique vécue par les artistes. Il interroge les signaux de détresse émis par ces derniers et leur difficile reconnaissance par le milieu des arts, la pression qu’exerce ce dernier et l’absence cumulée de réponses auxquelles de nombreux artistes font face. Nommée Cabine SOS et installée dans divers lieux en lien avec le monde des arts, cette œuvre interactive vise à recueillir et diffuser les témoignages de personnes ayant vécues des situations d’angoisse et de détresse.</p>
+            <p><a class="link-theme-a" href="#" data-action="openModal">Veuillez laisser votre message</a>.</p>
         </section>
         
     </main>
@@ -81,7 +95,7 @@
             <span class="sr-hide">Fermer</span>
         </a>
         <div class="modal-content">
-            <p>J’autorise Stanley Février à utiliser l’enregistrement sonore dans le cadre du projet Les vies possibles.</p>
+            <p>J’autorise Stanley Février à utiliser l’enregistrement sonore dans le cadre du projet <em>Les vies possibles</em>.</p>
             <button class="btn btn-refuse btn-small" onclick="closeModal();">Refuser</button>
             <a href="./enregistrez" class="btn btn-accept btn-small">Accepter</a>
         </div>
@@ -112,8 +126,11 @@
                 // Open about section
 
                 $('section.active').fadeOut(300, function() {
+                    
                     $(this).removeClass('active');
-                    $('#section-about').fadeIn().addClass('active');
+                    $('#section-about').fadeIn(300, function() {
+                        $(window).scrollTop(0);
+                    }).addClass('active');
                     headerBtnClose.fadeIn();
                 });
                 
@@ -140,7 +157,7 @@
                 });
             });
             
-            $('.btn-intro-record').on('click', function() {
+            $('[data-action="openModal"]').on('click', function() {
                 
                 $('.modal').fadeIn(300);
                 $('.modal-bg').fadeIn(300);

@@ -14,36 +14,52 @@ $json = json_encode($files);
 
 <!DOCTYPE html>
 <html lang="fr" class="no-js page">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Écoutez - Les vies possibles</title>
+    <title>Les vies possibles</title>
 
     <script type="module">
         document.documentElement.classList.remove('no-js');
         document.documentElement.classList.add('js');
     </script>
-
+    
     <link rel="stylesheet" href="https://use.typekit.net/sqz3hxj.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css?v=2">
 
-    <meta name="description" content="Page description">
-    <meta property="og:title" content="Les vies possibles">
-    <meta property="og:description" content="Page description">
-    <meta property="og:image" content="https://www.mywebsite.com/image.jpg">
-    <meta property="og:image:alt" content="Image description">
-    <meta property="og:locale" content="fr_CA">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Les vies possibles">
+    <meta name="description" content="Veuillez laisser votre message.">
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:url" content="https://www.mywebsite.com/page">
-    <link rel="canonical" href="https://www.mywebsite.com/page">
+    <meta property="og:url" content="https://lesviespossibles.org/">
+    <meta property="og:title" content="Les vies possibles">
+    <meta property="og:description" content="Veuillez laisser votre message.">
+    <meta property="og:image" content="https://lesviespossibles.org/fb-img.png">
 
-    <link rel="icon" href="/favicon.ico">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lesviespossibles.org/">
+    <meta property="twitter:title" content="Les vies possibles">
+    <meta property="twitter:description" content="Veuillez laisser votre message.">
+    <meta property="twitter:image" content="https://lesviespossibles.org/twitter-img.png">
+
+    <!-- <link rel="icon" href="/favicon.ico">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="theme-color" content="#FF00FF">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+    <!-- <meta name="theme-color" content="#FF00FF"> -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-91D99E8XNS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-91D99E8XNS');
+    </script>
 </head>
 
 <body>
@@ -80,6 +96,9 @@ $json = json_encode($files);
                 <button class="btn btn-pause" id="btnStop">
                     <span class="sr-hide">Arrêter la piste</span>
                 </button>
+                <div class="anim-wrapper" id="anim-loading">
+                    <div class="dot-pulse"></div>
+                </div>
                 <button class="btn btn-random" id="btnRandom">
                     <span class="sr-hide">Jouez une piste audio au hasard</span>
                 </button>
@@ -110,13 +129,21 @@ $json = json_encode($files);
         var btnPlay = $('#btnPlay');
         var btnStop = $('#btnStop');
         var btnRandom = $('#btnRandom');
+        var animLoading = $('#anim-loading');
         
         btnStop.hide();
         
         audioElement.src = './pistes/'+pistes.random();
         audioElement.load();
         
-        $(audioElement).on('ended', function() {
+        $(audioElement).on('canplay', function() {
+            console.log('audio is loaded');
+            animLoading.hide();
+            btnPlay.show();
+            $(this).off('canplay');
+        });
+ 
+         $(audioElement).on('ended', function() {
             console.log('piste terminée');
             // plugin.skip();
             var track = pistes.random();
@@ -125,8 +152,9 @@ $json = json_encode($files);
             audioElement.load();
             audioElement.play();
             
-            
         });
+        
+        
 
         function buildProgressBar() {
 			
@@ -190,11 +218,22 @@ $json = json_encode($files);
         btnRandom.on('click', function() {
             
             btnPlay.hide();
-            btnStop.show();
+            btnStop.hide();
+            animLoading.show();
             
             audioElement.src = './pistes/'+pistes.random();
             audioElement.load();
-            audioElement.play();
+            
+            $(audioElement).on('canplay', function() {
+                console.log('audio is loaded');
+                animLoading.hide();
+                btnPlay.hide();
+                btnStop.show();
+                audioElement.play();
+                $(this).off('canplay');
+            });
+        
+            
         });
         
         $(window).on('load', function () {
@@ -206,7 +245,9 @@ $json = json_encode($files);
             $('.btn-close').fadeIn(300);
             
         });
-
+        
+        
+        
     </script>
 
 </body>

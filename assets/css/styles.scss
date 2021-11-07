@@ -167,36 +167,36 @@ p {
 
     }
     
-    &.btn-about {
-        background: transparent url("data:image/svg+xml,%3Csvg width='63' height='64' viewBox='0 0 63 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1425:577)'%3E%3Cpath d='M63.1896 31.96L31.5096 63.64L-0.17041 31.96L31.5096 0.280029L63.1896 31.96ZM29.4216 34.12V39.808H32.5896V35.92L41.0136 30.16V23.176L36.6216 18.784H26.1096L21.7176 23.176V26.92H24.8856V24.616L27.5496 21.952H35.1816L37.8456 24.616V28.288L29.4216 34.12ZM29.4216 43.336V49.456H32.5896V43.336H29.4216Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1425:577'%3E%3Crect width='63' height='64' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat 0;
-        background-size: cover;
-        border: 0;
-        height: 64px;
-        margin-top: 20px;
-        opacity: 0;
-        width: 63px;
+    // &.btn-about {
+    //     background: transparent url("data:image/svg+xml,%3Csvg width='63' height='64' viewBox='0 0 63 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1425:577)'%3E%3Cpath d='M63.1896 31.96L31.5096 63.64L-0.17041 31.96L31.5096 0.280029L63.1896 31.96ZM29.4216 34.12V39.808H32.5896V35.92L41.0136 30.16V23.176L36.6216 18.784H26.1096L21.7176 23.176V26.92H24.8856V24.616L27.5496 21.952H35.1816L37.8456 24.616V28.288L29.4216 34.12ZM29.4216 43.336V49.456H32.5896V43.336H29.4216Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1425:577'%3E%3Crect width='63' height='64' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat 0;
+    //     background-size: cover;
+    //     border: 0;
+    //     height: 64px;
+    //     margin-top: 20px;
+    //     opacity: 0;
+    //     width: 63px;
         
-        -webkit-transition: transform 1000ms ease, opacity 1000ms ease;
-        transition: transform 1000ms ease,
-        opacity 1000ms ease;
+    //     -webkit-transition: transform 1000ms ease, opacity 1000ms ease;
+    //     transition: transform 1000ms ease,
+    //     opacity 1000ms ease;
 
-        -webkit-transform: translateY(30px);
-        transform: translateY(30px);
+    //     -webkit-transform: translateY(30px);
+    //     transform: translateY(30px);
         
-        &:hover {
-            animation: shake-animation 4.72s ease infinite;
-            transform-origin: 50% 50%;
-        }
+    //     &:hover {
+    //         animation: shake-animation 4.72s ease infinite;
+    //         transform-origin: 50% 50%;
+    //     }
         
-        .site-loaded & {
-            opacity: 1;
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-        }
+    //     .site-loaded & {
+    //         opacity: 1;
+    //         -webkit-transform: translateY(0);
+    //         transform: translateY(0);
+    //     }
         
-        -webkit-transition-delay: 1100ms;
-        transition-delay: 1100ms;
-    }
+    //     -webkit-transition-delay: 1100ms;
+    //     transition-delay: 1100ms;
+    // }
     
     &.btn-small {
         
@@ -204,7 +204,7 @@ p {
         font-size: 0.9em;
         letter-spacing: 0.3px;
         overflow:hidden;
-        padding: 10px;
+        padding: 10px 12px 14px;
         position: relative;
         text-decoration: none;
         
@@ -355,6 +355,10 @@ section {
             flex-basis: 100%;
             text-align: center;
         }
+        
+        .btn-about {
+            font-size: 1.5em;
+        }
     }
     
     &#section-about {
@@ -382,35 +386,35 @@ section {
                 margin-top: 80px;
             }
         }
-        
-        .step-4 {
-            
-            a {
-                color: white;
-                display: inline-block;
-                position: relative;
-                text-decoration: none;
+    }
+}
 
-                &::before {
-                    background-color: white;
-                    bottom: -2px;
-                    content:"";
-                    display: block;
-                    height: 2px;
-                    left: 0;
-                    position: absolute;
-                    width: 0%;
-                    
-                    -webkit-transition: width 300ms ease;
-                    transition: width 300ms ease;
-                }
-                &:hover, &:active, &:focus {
-                    
-                    &::before {
-                        width: 100%;
-                    }
-                }
-            }
+.link-theme-a {
+    color: white;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+
+    &::before {
+        background-color: white;
+        bottom: -2px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 0%;
+
+        -webkit-transition: width 300ms ease;
+        transition: width 300ms ease;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+
+        &::before {
+            width: 100%;
         }
     }
 }
@@ -598,6 +602,9 @@ section {
 }
 
 #btnPlay {
+    
+    display: none;
+    
     background: transparent url("data:image/svg+xml,%3Csvg width='23' height='28' viewBox='0 0 23 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.5 14L7.88721e-07 27.8564L1.82703e-06 0.143593L22.5 14Z' fill='%23ffffff'/%3E%3C/svg%3E") no-repeat center;
     height: 30px;
     overflow: hidden;
@@ -1064,7 +1071,7 @@ $spectrograph-width: ($spectrograph-bar-width * $spectrograph-bars-count)+($spec
 
     header {
         flex: 0 0 15%;
-        padding: 20px;
+        padding: 45px 20px 20px;
 
         h1 {
             margin: 0;
@@ -1093,6 +1100,10 @@ $spectrograph-width: ($spectrograph-bar-width * $spectrograph-bars-count)+($spec
                 display: flex;
                 align-items: flex-end;
                 justify-content: space-around;
+            }
+            
+            .btn-about {
+                font-size: 24px;
             }
         }
 
@@ -1127,10 +1138,10 @@ $spectrograph-width: ($spectrograph-bar-width * $spectrograph-bars-count)+($spec
             }
         }
 
-        &.btn-about {
-            height: 45px;
-            width: 44px;
-        }
+        // &.btn-about {
+        //     height: 45px;
+        //     width: 44px;
+        // }
     }
 
     .modal {
@@ -1198,5 +1209,135 @@ $spectrograph-width: ($spectrograph-bar-width * $spectrograph-bars-count)+($spec
     
     .box {
         transform: rotate(0deg);
+    }
+}
+
+.glow {
+    position: fixed;
+    bottom: -120%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow:
+        0 0 60px 30px #fff,
+        0 0 100px 60px #fff,
+        0 0 140px 90px #fff;
+        
+    animation: glowing 3s infinite ease-in-out;
+    z-index: -1;
+}
+
+@keyframes glowing {
+    0% {
+        transform: translateX(-50%) translateY(-100px);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-50px)
+    }
+    
+    100% {
+       transform: translateX(-50%) translateY(-100px);
+    }
+}
+
+/**
+ * ==============================================
+ * Dot Pulse
+ * ==============================================
+ */
+ 
+ #anim-loading {
+    // display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+ }
+ 
+.dot-pulse {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+    box-shadow: 9999px 0 0 -5px #9880ff;
+    animation: dotPulse 1.5s infinite linear;
+    animation-delay: .25s;
+}
+
+.dot-pulse::before,
+.dot-pulse::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #FFF;
+    color: #FFF;
+}
+
+.dot-pulse::before {
+    box-shadow: 9984px 0 0 -5px #FFF;
+    animation: dotPulseBefore 1.5s infinite linear;
+    animation-delay: 0s;
+}
+
+.dot-pulse::after {
+    box-shadow: 10014px 0 0 -5px #FFF;
+    animation: dotPulseAfter 1.5s infinite linear;
+    animation-delay: .5s;
+}
+
+@keyframes dotPulseBefore {
+    0% {
+        box-shadow: 9984px 0 0 -5px #FFF;
+    }
+
+    30% {
+        box-shadow: 9984px 0 0 2px #FFF;
+    }
+
+    60%,
+    100% {
+        box-shadow: 9984px 0 0 -5px #FFF;
+    }
+}
+
+@keyframes dotPulse {
+    0% {
+        box-shadow: 9999px 0 0 -5px #FFF;
+    }
+
+    30% {
+        box-shadow: 9999px 0 0 2px #FFF;
+    }
+
+    60%,
+    100% {
+        box-shadow: 9999px 0 0 -5px #FFF;
+    }
+}
+
+@keyframes dotPulseAfter {
+    0% {
+        box-shadow: 10014px 0 0 -5px #FFF;
+    }
+
+    30% {
+        box-shadow: 10014px 0 0 2px #FFF;
+    }
+
+    60%,
+    100% {
+        box-shadow: 10014px 0 0 -5px #FFF;
     }
 }

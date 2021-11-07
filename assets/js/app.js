@@ -11,6 +11,7 @@ var audioContext //audio context to help us record
 
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
+var animLoading = document.getElementById("animLoading");
 //var pauseButton = document.getElementById("pauseButton");
 
 //add events to those 2 buttons
@@ -35,7 +36,8 @@ function startRecording() {
 	*/
 
 	recordButton.disabled = true;
-	stopButton.disabled = false;
+	stopButton.disabled = true;
+	animLoading.disabled = false;
 	
 	$('.step-1').fadeOut(300, function() {
 		$('.step-2').fadeIn(300);
@@ -125,6 +127,9 @@ function stopRecording() {
 	//create the wav blob and pass it on to createDownloadLink
 	rec.exportWAV(createDownloadLink);
 }
+
+//Stop recording after 25 min
+setTimeout(stopRecording, 1500000);
 
 function createDownloadLink(blob) {
 	

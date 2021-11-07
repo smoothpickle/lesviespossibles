@@ -174,44 +174,12 @@ p {
   transition-delay: 900ms;
 }
 
-.btn.btn-about {
-  background: transparent url("data:image/svg+xml,%3Csvg width='63' height='64' viewBox='0 0 63 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1425:577)'%3E%3Cpath d='M63.1896 31.96L31.5096 63.64L-0.17041 31.96L31.5096 0.280029L63.1896 31.96ZM29.4216 34.12V39.808H32.5896V35.92L41.0136 30.16V23.176L36.6216 18.784H26.1096L21.7176 23.176V26.92H24.8856V24.616L27.5496 21.952H35.1816L37.8456 24.616V28.288L29.4216 34.12ZM29.4216 43.336V49.456H32.5896V43.336H29.4216Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1425:577'%3E%3Crect width='63' height='64' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat 0;
-  background-size: cover;
-  border: 0;
-  height: 64px;
-  margin-top: 20px;
-  opacity: 0;
-  width: 63px;
-  -webkit-transition: transform 1000ms ease, opacity 1000ms ease;
-  -webkit-transition: opacity 1000ms ease, -webkit-transform 1000ms ease;
-  transition: opacity 1000ms ease, -webkit-transform 1000ms ease;
-  transition: transform 1000ms ease, opacity 1000ms ease;
-  transition: transform 1000ms ease, opacity 1000ms ease, -webkit-transform 1000ms ease;
-  -webkit-transform: translateY(30px);
-  transform: translateY(30px);
-  -webkit-transition-delay: 1100ms;
-  transition-delay: 1100ms;
-}
-
-.btn.btn-about:hover {
-  -webkit-animation: shake-animation 4.72s ease infinite;
-          animation: shake-animation 4.72s ease infinite;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-
-.site-loaded .btn.btn-about {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-}
-
 .btn.btn-small {
   border: 2px solid white;
   font-size: 0.9em;
   letter-spacing: 0.3px;
   overflow: hidden;
-  padding: 10px;
+  padding: 10px 12px 14px;
   position: relative;
   text-decoration: none;
   -webkit-transition: color 255ms ease;
@@ -359,6 +327,10 @@ section#section-intro .full {
   text-align: center;
 }
 
+section#section-intro .btn-about {
+  font-size: 1.5em;
+}
+
 section#section-about p {
   margin-top: 0;
   text-align: center;
@@ -380,14 +352,14 @@ section#section-record .step-3 .controls {
   margin-top: 80px;
 }
 
-section#section-record .step-4 a {
+.link-theme-a {
   color: white;
   display: inline-block;
   position: relative;
   text-decoration: none;
 }
 
-section#section-record .step-4 a::before {
+.link-theme-a::before {
   background-color: white;
   bottom: -2px;
   content: "";
@@ -400,7 +372,7 @@ section#section-record .step-4 a::before {
   transition: width 300ms ease;
 }
 
-section#section-record .step-4 a:hover::before, section#section-record .step-4 a:active::before, section#section-record .step-4 a:focus::before {
+.link-theme-a:hover::before, .link-theme-a:active::before, .link-theme-a:focus::before {
   width: 100%;
 }
 
@@ -615,6 +587,7 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
 }
 
 #btnPlay {
+  display: none;
   background: transparent url("data:image/svg+xml,%3Csvg width='23' height='28' viewBox='0 0 23 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.5 14L7.88721e-07 27.8564L1.82703e-06 0.143593L22.5 14Z' fill='%23ffffff'/%3E%3C/svg%3E") no-repeat center;
   height: 30px;
   overflow: hidden;
@@ -727,8 +700,8 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
           animation-name: animation3;
   -webkit-animation-delay: 50ms;
           animation-delay: 50ms;
-  -webkit-animation-duration: 3600ms;
-          animation-duration: 3600ms;
+  -webkit-animation-duration: 3700ms;
+          animation-duration: 3700ms;
 }
 
 .spectrograph__bar:nth-child(2) {
@@ -745,13 +718,13 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
           animation-name: animation2;
   -webkit-animation-delay: 150ms;
           animation-delay: 150ms;
-  -webkit-animation-duration: 3800ms;
-          animation-duration: 3800ms;
+  -webkit-animation-duration: 3600ms;
+          animation-duration: 3600ms;
 }
 
 .spectrograph__bar:nth-child(4) {
-  -webkit-animation-name: animation2;
-          animation-name: animation2;
+  -webkit-animation-name: animation3;
+          animation-name: animation3;
   -webkit-animation-delay: 200ms;
           animation-delay: 200ms;
   -webkit-animation-duration: 3600ms;
@@ -759,8 +732,8 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
 }
 
 .spectrograph__bar:nth-child(5) {
-  -webkit-animation-name: animation3;
-          animation-name: animation3;
+  -webkit-animation-name: animation2;
+          animation-name: animation2;
   -webkit-animation-delay: 250ms;
           animation-delay: 250ms;
   -webkit-animation-duration: 3600ms;
@@ -768,12 +741,12 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
 }
 
 .spectrograph__bar:nth-child(6) {
-  -webkit-animation-name: animation2;
-          animation-name: animation2;
+  -webkit-animation-name: animation3;
+          animation-name: animation3;
   -webkit-animation-delay: 300ms;
           animation-delay: 300ms;
-  -webkit-animation-duration: 3800ms;
-          animation-duration: 3800ms;
+  -webkit-animation-duration: 3700ms;
+          animation-duration: 3700ms;
 }
 
 .spectrograph__bar:nth-child(7) {
@@ -786,8 +759,8 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
 }
 
 .spectrograph__bar:nth-child(8) {
-  -webkit-animation-name: animation2;
-          animation-name: animation2;
+  -webkit-animation-name: animation1;
+          animation-name: animation1;
   -webkit-animation-delay: 400ms;
           animation-delay: 400ms;
   -webkit-animation-duration: 3700ms;
@@ -799,13 +772,13 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
           animation-name: animation1;
   -webkit-animation-delay: 450ms;
           animation-delay: 450ms;
-  -webkit-animation-duration: 3600ms;
-          animation-duration: 3600ms;
+  -webkit-animation-duration: 3700ms;
+          animation-duration: 3700ms;
 }
 
 .spectrograph__bar:nth-child(10) {
-  -webkit-animation-name: animation3;
-          animation-name: animation3;
+  -webkit-animation-name: animation1;
+          animation-name: animation1;
   -webkit-animation-delay: 500ms;
           animation-delay: 500ms;
   -webkit-animation-duration: 3800ms;
@@ -817,8 +790,8 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
           animation-name: animation1;
   -webkit-animation-delay: 550ms;
           animation-delay: 550ms;
-  -webkit-animation-duration: 3700ms;
-          animation-duration: 3700ms;
+  -webkit-animation-duration: 3800ms;
+          animation-duration: 3800ms;
 }
 
 .spectrograph__bar:nth-child(12) {
@@ -826,8 +799,8 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
           animation-name: animation3;
   -webkit-animation-delay: 600ms;
           animation-delay: 600ms;
-  -webkit-animation-duration: 3700ms;
-          animation-duration: 3700ms;
+  -webkit-animation-duration: 3600ms;
+          animation-duration: 3600ms;
 }
 
 .spectrograph__bar:nth-child(13) {
@@ -835,8 +808,8 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
           animation-name: animation2;
   -webkit-animation-delay: 650ms;
           animation-delay: 650ms;
-  -webkit-animation-duration: 3800ms;
-          animation-duration: 3800ms;
+  -webkit-animation-duration: 3600ms;
+          animation-duration: 3600ms;
 }
 
 .spectrograph__bar:nth-child(14) {
@@ -844,13 +817,13 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
           animation-name: animation2;
   -webkit-animation-delay: 700ms;
           animation-delay: 700ms;
-  -webkit-animation-duration: 3700ms;
-          animation-duration: 3700ms;
+  -webkit-animation-duration: 3600ms;
+          animation-duration: 3600ms;
 }
 
 .spectrograph__bar:nth-child(15) {
-  -webkit-animation-name: animation3;
-          animation-name: animation3;
+  -webkit-animation-name: animation1;
+          animation-name: animation1;
   -webkit-animation-delay: 750ms;
           animation-delay: 750ms;
   -webkit-animation-duration: 3600ms;
@@ -858,21 +831,21 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
 }
 
 .spectrograph__bar:nth-child(16) {
-  -webkit-animation-name: animation3;
-          animation-name: animation3;
+  -webkit-animation-name: animation2;
+          animation-name: animation2;
   -webkit-animation-delay: 800ms;
           animation-delay: 800ms;
-  -webkit-animation-duration: 3700ms;
-          animation-duration: 3700ms;
+  -webkit-animation-duration: 3600ms;
+          animation-duration: 3600ms;
 }
 
 .spectrograph__bar:nth-child(17) {
-  -webkit-animation-name: animation2;
-          animation-name: animation2;
+  -webkit-animation-name: animation1;
+          animation-name: animation1;
   -webkit-animation-delay: 850ms;
           animation-delay: 850ms;
-  -webkit-animation-duration: 3600ms;
-          animation-duration: 3600ms;
+  -webkit-animation-duration: 3700ms;
+          animation-duration: 3700ms;
 }
 
 .spectrograph__bar:nth-child(18) {
@@ -880,22 +853,22 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
           animation-name: animation1;
   -webkit-animation-delay: 900ms;
           animation-delay: 900ms;
-  -webkit-animation-duration: 3800ms;
-          animation-duration: 3800ms;
+  -webkit-animation-duration: 3600ms;
+          animation-duration: 3600ms;
 }
 
 .spectrograph__bar:nth-child(19) {
-  -webkit-animation-name: animation3;
-          animation-name: animation3;
+  -webkit-animation-name: animation2;
+          animation-name: animation2;
   -webkit-animation-delay: 950ms;
           animation-delay: 950ms;
-  -webkit-animation-duration: 3700ms;
-          animation-duration: 3700ms;
+  -webkit-animation-duration: 3600ms;
+          animation-duration: 3600ms;
 }
 
 .spectrograph__bar:nth-child(20) {
-  -webkit-animation-name: animation3;
-          animation-name: animation3;
+  -webkit-animation-name: animation1;
+          animation-name: animation1;
   -webkit-animation-delay: 1000ms;
           animation-delay: 1000ms;
   -webkit-animation-duration: 3700ms;
@@ -1293,7 +1266,7 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
     -webkit-box-flex: 0;
         -ms-flex: 0 0 15%;
             flex: 0 0 15%;
-    padding: 20px;
+    padding: 45px 20px 20px;
   }
   header h1 {
     margin: 0;
@@ -1328,6 +1301,9 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
+  section#section-intro .btn-about {
+    font-size: 24px;
+  }
   section#section-about p {
     font-size: 1em;
     text-align: left;
@@ -1345,10 +1321,6 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
   .btn.btn-intro-listen span, .btn.btn-intro-record span {
     bottom: -60px;
     font-size: 24px;
-  }
-  .btn.btn-about {
-    height: 45px;
-    width: 44px;
   }
   .modal {
     left: 20px;
@@ -1405,6 +1377,209 @@ section#section-record .step-4 a:hover::before, section#section-record .step-4 a
   .box {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
+  }
+}
+
+.glow {
+  position: fixed;
+  bottom: -120%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 200%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 60px 30px #fff, 0 0 100px 60px #fff, 0 0 140px 90px #fff;
+          box-shadow: 0 0 60px 30px #fff, 0 0 100px 60px #fff, 0 0 140px 90px #fff;
+  -webkit-animation: glowing 3s infinite ease-in-out;
+          animation: glowing 3s infinite ease-in-out;
+  z-index: -1;
+}
+
+@-webkit-keyframes glowing {
+  0% {
+    -webkit-transform: translateX(-50%) translateY(-100px);
+            transform: translateX(-50%) translateY(-100px);
+  }
+  50% {
+    -webkit-transform: translateX(-50%) translateY(-50px);
+            transform: translateX(-50%) translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateX(-50%) translateY(-100px);
+            transform: translateX(-50%) translateY(-100px);
+  }
+}
+
+@keyframes glowing {
+  0% {
+    -webkit-transform: translateX(-50%) translateY(-100px);
+            transform: translateX(-50%) translateY(-100px);
+  }
+  50% {
+    -webkit-transform: translateX(-50%) translateY(-50px);
+            transform: translateX(-50%) translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateX(-50%) translateY(-100px);
+            transform: translateX(-50%) translateY(-100px);
+  }
+}
+
+/**
+ * ==============================================
+ * Dot Pulse
+ * ==============================================
+ */
+#anim-loading {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  -webkit-box-shadow: 9999px 0 0 -5px #9880ff;
+          box-shadow: 9999px 0 0 -5px #9880ff;
+  -webkit-animation: dotPulse 1.5s infinite linear;
+          animation: dotPulse 1.5s infinite linear;
+  -webkit-animation-delay: .25s;
+          animation-delay: .25s;
+}
+
+.dot-pulse::before,
+.dot-pulse::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #FFF;
+  color: #FFF;
+}
+
+.dot-pulse::before {
+  -webkit-box-shadow: 9984px 0 0 -5px #FFF;
+          box-shadow: 9984px 0 0 -5px #FFF;
+  -webkit-animation: dotPulseBefore 1.5s infinite linear;
+          animation: dotPulseBefore 1.5s infinite linear;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.dot-pulse::after {
+  -webkit-box-shadow: 10014px 0 0 -5px #FFF;
+          box-shadow: 10014px 0 0 -5px #FFF;
+  -webkit-animation: dotPulseAfter 1.5s infinite linear;
+          animation: dotPulseAfter 1.5s infinite linear;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+}
+
+@-webkit-keyframes dotPulseBefore {
+  0% {
+    -webkit-box-shadow: 9984px 0 0 -5px #FFF;
+            box-shadow: 9984px 0 0 -5px #FFF;
+  }
+  30% {
+    -webkit-box-shadow: 9984px 0 0 2px #FFF;
+            box-shadow: 9984px 0 0 2px #FFF;
+  }
+  60%,
+  100% {
+    -webkit-box-shadow: 9984px 0 0 -5px #FFF;
+            box-shadow: 9984px 0 0 -5px #FFF;
+  }
+}
+
+@keyframes dotPulseBefore {
+  0% {
+    -webkit-box-shadow: 9984px 0 0 -5px #FFF;
+            box-shadow: 9984px 0 0 -5px #FFF;
+  }
+  30% {
+    -webkit-box-shadow: 9984px 0 0 2px #FFF;
+            box-shadow: 9984px 0 0 2px #FFF;
+  }
+  60%,
+  100% {
+    -webkit-box-shadow: 9984px 0 0 -5px #FFF;
+            box-shadow: 9984px 0 0 -5px #FFF;
+  }
+}
+
+@-webkit-keyframes dotPulse {
+  0% {
+    -webkit-box-shadow: 9999px 0 0 -5px #FFF;
+            box-shadow: 9999px 0 0 -5px #FFF;
+  }
+  30% {
+    -webkit-box-shadow: 9999px 0 0 2px #FFF;
+            box-shadow: 9999px 0 0 2px #FFF;
+  }
+  60%,
+  100% {
+    -webkit-box-shadow: 9999px 0 0 -5px #FFF;
+            box-shadow: 9999px 0 0 -5px #FFF;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    -webkit-box-shadow: 9999px 0 0 -5px #FFF;
+            box-shadow: 9999px 0 0 -5px #FFF;
+  }
+  30% {
+    -webkit-box-shadow: 9999px 0 0 2px #FFF;
+            box-shadow: 9999px 0 0 2px #FFF;
+  }
+  60%,
+  100% {
+    -webkit-box-shadow: 9999px 0 0 -5px #FFF;
+            box-shadow: 9999px 0 0 -5px #FFF;
+  }
+}
+
+@-webkit-keyframes dotPulseAfter {
+  0% {
+    -webkit-box-shadow: 10014px 0 0 -5px #FFF;
+            box-shadow: 10014px 0 0 -5px #FFF;
+  }
+  30% {
+    -webkit-box-shadow: 10014px 0 0 2px #FFF;
+            box-shadow: 10014px 0 0 2px #FFF;
+  }
+  60%,
+  100% {
+    -webkit-box-shadow: 10014px 0 0 -5px #FFF;
+            box-shadow: 10014px 0 0 -5px #FFF;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    -webkit-box-shadow: 10014px 0 0 -5px #FFF;
+            box-shadow: 10014px 0 0 -5px #FFF;
+  }
+  30% {
+    -webkit-box-shadow: 10014px 0 0 2px #FFF;
+            box-shadow: 10014px 0 0 2px #FFF;
+  }
+  60%,
+  100% {
+    -webkit-box-shadow: 10014px 0 0 -5px #FFF;
+            box-shadow: 10014px 0 0 -5px #FFF;
   }
 }
 /*# sourceMappingURL=styles.css.map */
