@@ -17,8 +17,12 @@ $json = json_encode($files);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
-    <title>Les vies possibles</title>
+    <title>Écoutez - Les vies possibles</title>
 
     <script type="module">
         document.documentElement.classList.remove('no-js');
@@ -143,7 +147,7 @@ $json = json_encode($files);
             $(this).off('canplay');
         });
  
-         $(audioElement).on('ended', function() {
+        $(audioElement).on('ended', function() {
             console.log('piste terminée');
             // plugin.skip();
             var track = pistes.random();

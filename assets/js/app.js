@@ -11,13 +11,91 @@ var audioContext //audio context to help us record
 
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
-var animLoading = document.getElementById("animLoading");
+// var animLoading = document.getElementById("animLoading");
 //var pauseButton = document.getElementById("pauseButton");
 
 //add events to those 2 buttons
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
 //pauseButton.addEventListener("click", pauseRecording);
+
+
+
+var hours = minutes = seconds = milliseconds = 0;
+var prev_hours = prev_minutes = prev_seconds = prev_milliseconds = undefined;
+var timeUpdate;
+
+// Start/Pause/Resume button onClick
+// $("#start_pause_resume").button().click(function(){
+//     // Start button
+//     if($(this).text() == "Start"){  // check button label
+//         $(this).html("<span class='ui-button-text'>Pause</span>");
+//         updateTime(0,0,0,0);
+//     }
+//     // Pause button
+//     else if($(this).text() == "Pause"){
+//         clearInterval(timeUpdate);
+//         $(this).html("<span class='ui-button-text'>Resume</span>");
+//     }
+//     // Resume button		
+//     else if($(this).text() == "Resume"){
+//         prev_hours = parseInt($("#hours").html());
+//         prev_minutes = parseInt($("#minutes").html());
+//         prev_seconds = parseInt($("#seconds").html());
+//         prev_milliseconds = parseInt($("#milliseconds").html());
+		
+//         updateTime(prev_hours, prev_minutes, prev_seconds, prev_milliseconds);
+		
+//         $(this).html("<span class='ui-button-text'>Pause</span>");
+//     }
+// });
+
+// Update time in stopwatch periodically - every 25ms
+function updateTime(prev_hours, prev_minutes, prev_seconds, prev_milliseconds){
+	var startTime = new Date();    // fetch current time
+	
+	timeUpdate = setInterval(function () {
+		var timeElapsed = new Date().getTime() - startTime.getTime();    // calculate the time elapsed in milliseconds
+		
+		// calculate hours                
+		hours = parseInt(timeElapsed / 1000 / 60 / 60) + prev_hours;
+		
+		// calculate minutes
+		minutes = parseInt(timeElapsed / 1000 / 60) + prev_minutes;
+		if (minutes > 60) minutes %= 60;
+		
+		// calculate seconds
+		seconds = parseInt(timeElapsed / 1000) + prev_seconds;
+		if (seconds > 60) seconds %= 60;
+		
+		// calculate milliseconds 
+		milliseconds = timeElapsed + prev_milliseconds;
+		if (milliseconds > 1000) milliseconds %= 1000;
+		
+		// set the stopwatch
+		setStopwatch(hours, minutes, seconds, milliseconds);
+		
+	}, 25); // update time in stopwatch after every 25ms
+	
+}
+
+// Set the time in stopwatch
+function setStopwatch(hours, minutes, seconds, milliseconds){
+	$("#hours").html(prependZero(hours, 2));
+	$("#minutes").html(prependZero(minutes, 2));
+	$("#seconds").html(prependZero(seconds, 2));
+	$("#milliseconds").html(prependZero(milliseconds, 3));
+}
+
+// Prepend zeros to the digits in stopwatch
+function prependZero(time, length) {
+	time = new String(time);    // stringify time
+	return new Array(Math.max(length - time.length + 1, 0)).join("0") + time;
+}
+        
+            // $('.btn-record').on('click', function() {
+            //     updateTime(0,0,0,0);
+            // });
 
 function startRecording() {
 	console.log("recordButton clicked");
@@ -29,18 +107,21 @@ function startRecording() {
 		https://addpipe.com/blog/audio-constraints-getusermedia/
 	*/
     
-    var constraints = { audio: true, video:false }
+    var constraints = { audio: true, video: false }
 
  	/*
     	Disable the record button until we get a success or fail from getUserMedia() 
 	*/
 
 	recordButton.disabled = true;
-	stopButton.disabled = true;
-	animLoading.disabled = false;
+	stopButton.disabled = false;
+	// animLoading.disabled = false;
 	
 	$('.step-1').fadeOut(300, function() {
 		$('.step-2').fadeIn(300);
+		updateTime(0,0,0,0);
+		
+		$('html').attr('data-state', 'recording');
 	});
 	
 	//pauseButton.disabled = false
@@ -49,6 +130,8 @@ function startRecording() {
     	We're using the standard promise based getUserMedia() 
     	https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
 	*/
+	
+	console.log(navigator.mediaDevices)
 
 	navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
 		console.log("getUserMedia() success, stream created, initializing Recorder.js ...");
@@ -105,6 +188,8 @@ function pauseRecording(){
 
 function stopRecording() {
 	console.log("stopButton clicked");
+	
+	$('html').attr('data-state', false);
 
 	//disable the stop button, enable the record too allow for new recordings
 	stopButton.disabled = true;
@@ -185,6 +270,7 @@ function createDownloadLink(blob) {
 	//add the li element to the ol
 	recordingsList.appendChild(li);
 }
+
 
 $('#sendButton').on('click', function() {
 	$('.step-3').fadeOut(300, function() {

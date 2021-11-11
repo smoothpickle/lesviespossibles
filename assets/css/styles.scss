@@ -39,7 +39,37 @@ header {
 
 main {
     flex-basis: 80%;
+    // overflow: hidden;
     padding: 40px 20px;
+    position: relative;
+    
+    // [data-state="recording"] & {
+
+    //     &::after {
+    //         background: rgb(255, 255, 255);
+    //         background: linear-gradient(0deg, #ffffff 0%, rgba(17, 17, 17, 0) 100%);
+    //         // background: linear-gradient(0deg, hsl(100, 100%, 100%) 0%,
+    //         //     hsla(100, 100%, 100%, 0.738) 19%,
+    //         //     hsla(100, 100%, 100%, 0.541) 34%,
+    //         //     hsla(100, 100%, 100%, 0.382) 47%,
+    //         //     hsla(100, 100%, 100%, 0.278) 56.5%,
+    //         //     hsla(100, 100%, 100%, 0.194) 65%,
+    //         //     hsla(100, 100%, 100%, 0.126) 73%,
+    //         //     hsla(100, 100%, 100%, 0.075) 80.2%,
+    //         //     hsla(100, 100%, 100%, 0.042) 86.1%,
+    //         //     hsla(100, 100%, 100%, 0.021) 91%,
+    //         //     hsla(100, 100%, 100%, 0.008) 95.2%,
+    //         //     hsla(100, 100%, 100%, 0.002) 98.2%,
+    //         //     hsla(100, 100%, 100%, 0) 100%);
+    //         bottom: -70px;
+    //         content: "";
+    //         display: block;
+    //         height: 250px;
+    //         left: 0;
+    //         position: fixed;
+    //         right: 0;
+    //     }
+    // }
     
 }
 
@@ -277,43 +307,43 @@ p {
     }
     
     &.btn-stop-record {
-        border: 2px solid white;
-        display: inline-block;
-        font-size: 1.35em;
-        overflow: hidden;
-        // padding: 118px 60px;
-        position: relative;
+        // border: 2px solid white;
+        // display: inline-block;
+        // font-size: 1.35em;
+        // overflow: hidden;
+        // // padding: 118px 60px;
+        // position: relative;
 
-        -webkit-transition: color 255ms ease;
-        transition: color 255ms ease;
+        // -webkit-transition: color 255ms ease;
+        // transition: color 255ms ease;
 
-        &::before {
-            background-color: white;
-            content: "";
+        // &::before {
+        //     background-color: white;
+        //     content: "";
 
-            position: absolute;
-            top: 100%;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        //     position: absolute;
+        //     top: 100%;
+        //     bottom: 0;
+        //     left: 0;
+        //     right: 0;
 
-            -webkit-transition: top 255ms ease;
-            transition: top 255ms ease;
+        //     -webkit-transition: top 255ms ease;
+        //     transition: top 255ms ease;
 
-            z-index: -1;
-        }
+        //     z-index: -1;
+        // }
 
-        &:hover, &:active, &:focus {
+        // &:hover, &:active, &:focus {
 
-            color: #111;
+        //     color: #111;
 
-            &::before {
-                top: 0%;
-            }
-        }
+        //     &::before {
+        //         top: 0%;
+        //     }
+        // }
     }
     
-    &.btn-record, &.btn-stop-record {
+    &.btn-record {
         
         height: 394px;
         font-size: 1.35em;
@@ -374,16 +404,48 @@ section {
     
     &#section-record {
         
+        // align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
         text-align: center;
         
         .step-2, .step-3, .step-4 {
             display: none;
+            width: 100%;
         }
         
         .step-3 {
             
             .controls {
-                margin-top: 80px;
+                margin-top: 4em;
+            }
+        }
+        
+        .step-inner {
+            // display: flex;
+            // height: 100%;
+            // flex-direction: column;
+            // justify-content: space-between;
+        }
+        
+        #time {
+            display: flex;
+            font-size: 1.6em;
+            justify-content: center;
+            flex-wrap: nowrap;
+            margin: 1em 0 3em;
+            // margin-bottom: 50px;
+            span {
+                margin: 0 2px;
+            }
+            #seconds, #minutes {
+                // display: inline-block;
+                width: 38px;
+            }
+            #milliseconds {
+                // display: inline-block;
+                width: 58px;
             }
         }
     }
@@ -530,7 +592,7 @@ section {
 }
 
 
-.hidden {
+.hidden, .hide {
     display: none;
 }
 
@@ -901,7 +963,7 @@ $spectrograph-width: ($spectrograph-bar-width * $spectrograph-bars-count)+($spec
 .box {
     position: fixed;
     left: -260px;
-    // bottom: 0;
+    bottom: 20%;
     right: 0;
     // bottom: -205px;
     // filter: blur(40px);
@@ -1163,8 +1225,7 @@ $spectrograph-width: ($spectrograph-bar-width * $spectrograph-bars-count)+($spec
     }
 
 
-    .btn.btn-record,
-    .btn.btn-stop-record {
+    .btn.btn-record {
         display: flex;
         height: 300px;
         font-size: 1.1em;

@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Les vies possibles</title>
+    <title>Enregistrez - Les vies possibles</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <script type="module">
         document.documentElement.classList.remove('no-js');
@@ -76,9 +80,20 @@
         </div>
 
         <div class="step-2">
-            <button class="btn btn-stop-record" id="stopButton" disabled>
-                <span>Arrêtez<br> l'enregistrement</span>
-            </button>
+            <div class="step-inner">
+                <div id="time">
+                    <span id="hours">00</span>
+                    <span class="sep">:</span>
+                    <span id="minutes">00</span>
+                    <span class="sep">:</span>
+                    <span id="seconds">00</span>
+                    <span class="sep">:</span>
+                    <span id="milliseconds">000</span>
+                </div>
+                <button class="btn btn-stop-record btn-small" id="stopButton" disabled>
+                    <span>Arrêtez l'enregistrement</span>
+                </button>
+            </div>
             
             <div class='box'>
                 <div class='wave -one'></div>
@@ -109,7 +124,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/recorder.js"></script>
-    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/app.js?v=343"></script>
     <script>
             
         $(window).on('load', function () {
