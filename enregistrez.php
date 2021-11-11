@@ -82,13 +82,13 @@
         <div class="step-2">
             <div class="step-inner">
                 <div id="time">
-                    <span id="hours">00</span>
-                    <span class="sep">:</span>
+                    <span class="hide" id="hours">00</span>
+                    <span class="hide sep">:</span>
                     <span id="minutes">00</span>
                     <span class="sep">:</span>
                     <span id="seconds">00</span>
-                    <span class="sep">:</span>
-                    <span id="milliseconds">000</span>
+                    <span class="hide sep">:</span>
+                    <span class="hide" id="milliseconds">000</span>
                 </div>
                 <button class="btn btn-stop-record btn-small" id="stopButton" disabled>
                     <span>Arrêtez l'enregistrement</span>
